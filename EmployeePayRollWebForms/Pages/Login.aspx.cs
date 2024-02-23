@@ -40,8 +40,8 @@ namespace EmployeePayRollWebForms.Pages
                     }
                     else
                     {
-                        Response.Redirect("/Pages/Login.aspx");
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Login UnSuccessful');", true);
+                        Server.Transfer("/Pages/Login.aspx");
                     }
                 }
                 con.Close();

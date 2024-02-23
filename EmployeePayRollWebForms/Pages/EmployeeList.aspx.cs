@@ -95,11 +95,41 @@ namespace EmployeePayRollWebForms.Pages
                 GetEmp(poNumber);
             }else if(e.CommandName == "Delete")
             {
+
                 DeleteEmp(poNumber);
             }else if(e.CommandName == "Update")
             {
                 Session["Update"] = poNumber;
                 Response.Redirect("UpdateEmp.aspx");
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            using(SqlConnection con = new SqlConnection(connectionString)) { 
+                 con.Open();
+                SqlCommand sqlCommand = new SqlCommand("sp_GetEmpPayRoll_By_Character '"+SearchInput.Text+"%'", con);
+                SqlDataAdapter reader = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                reader.Fill(dataTable);
+                GridView3.DataSource = dataTable;
+                GridView3.DataBind();
+
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand sqlCommand = new SqlCommand("sp_GetEmpPayRoll_DateRange '" + DateText.Text + "' , '"+DateText2.Text+"'", con);
+                SqlDataAdapter reader = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                reader.Fill(dataTable);
+                GridView4.DataSource = dataTable;
+                GridView4.DataBind();
+
             }
         }
     }

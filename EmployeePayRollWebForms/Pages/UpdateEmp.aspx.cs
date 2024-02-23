@@ -15,14 +15,18 @@ namespace EmployeePayRollWebForms.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (Session["Update"] != null)
+            if (!IsPostBack)
             {
-                int pass = Convert.ToInt32(Session["Update"].ToString());
-                GetEmp(pass);
-            }else if (Session["Id"] != null)
-            {
-                int pass = Convert.ToInt32(Session["Id"].ToString());
-                GetEmp(pass);
+                if (Session["Update"] != null)
+                {
+                    int pass = Convert.ToInt32(Session["Update"].ToString());
+                    GetEmp(pass); 
+                }
+                else if (Session["Id"] != null)
+                {
+                    int pass = Convert.ToInt32(Session["Id"].ToString());
+                    GetEmp(pass);
+                }
             }
 
         }

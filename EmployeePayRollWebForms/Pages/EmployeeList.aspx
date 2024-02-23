@@ -93,6 +93,91 @@
         </div>
 
 
+        <div class="container">
+            <asp:Label ID="SearchHere" runat="server" Text="Search Here"></asp:Label>
+            <asp:TextBox ID="SearchInput" runat="server"></asp:TextBox>
+            <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
+
+            <br />
+            <br />
+            <asp:Label ID="DAteLabel" runat="server" Text="Search Here Dates"></asp:Label>
+            <asp:TextBox ID="DateText" runat="server" TextMode="Date"></asp:TextBox>
+            <asp:TextBox ID="DateText2" runat="server" TextMode="Date"></asp:TextBox>
+            <asp:Button ID="Button2" runat="server" Text="SubmitDateRange" OnClick="Button2_Click" />
+
+            <asp:GridView ID="GridView3" runat="server" CssClass="table table-bordered table-striped table-hover table-dark text-center">
+
+                <FooterStyle BackColor="White" ForeColor="#000066" />
+                <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                <RowStyle ForeColor="#000066" />
+                <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#00547E" />
+
+                <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="Student ID" SortExpression="StudentId" Visible="true" />
+                    <asp:BoundField DataField="Emp_Name" HeaderText="Student Name" SortExpression="StudentName" Visible="true" />
+                    <asp:BoundField DataField="Gender" HeaderText="Student Address" SortExpression="Student_Address" Visible="true" />
+                    <asp:BoundField DataField="Department" HeaderText="Email" SortExpression="Email" Visible="true" />
+                    <asp:BoundField DataField="Salary" HeaderText="Branch" SortExpression="Branch" Visible="true" />
+                    <asp:BoundField DataField="StartDate" HeaderText="Registration Date" SortExpression="Reg_Date" Visible="true" />
+                    <asp:BoundField DataField="Notes" HeaderText="Registration Date" SortExpression="Reg_Date" Visible="true" />
+
+                    <asp:TemplateField HeaderText="Student Image" Visible="true">
+                        <ItemTemplate>
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("ProfileImage") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+
+                </Columns>
+            </asp:GridView>
+
+
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered table-striped table-hover table-dark text-center"
+                BackColor="White" BorderColor="#CCCCCC" DataKeyNames="Id,Emp_Name" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+
+                <FooterStyle BackColor="White" ForeColor="#000066" />
+                <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                <RowStyle ForeColor="#000066" />
+                <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#00547E" />
+
+                <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="Student ID" SortExpression="StudentId" Visible="true" />
+                    <asp:BoundField DataField="Emp_Name" HeaderText="Student Name" SortExpression="StudentName" Visible="true" />
+                    <asp:BoundField DataField="Gender" HeaderText="Student Address" SortExpression="Student_Address" Visible="true" />
+                    <asp:BoundField DataField="Department" HeaderText="Email" SortExpression="Email" Visible="true" />
+                    <asp:BoundField DataField="Salary" HeaderText="Branch" SortExpression="Branch" Visible="true" />
+                    <asp:BoundField DataField="StartDate" HeaderText="Registration Date" SortExpression="Reg_Date" Visible="true" />
+                    <asp:BoundField DataField="Notes" HeaderText="Registration Date" SortExpression="Reg_Date" Visible="true" />
+
+                    <asp:TemplateField HeaderText="Student Image" Visible="true">
+                        <ItemTemplate>
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("ProfileImage") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+
+                </Columns>
+
+            </asp:GridView>
+        </div>
+
+
+
 
 
     </form>
@@ -102,7 +187,8 @@
 
     <div class="container body-content">
         <a href="#">&larr;back</a>
-        <br /><br />
+        <br />
+        <br />
         <hr />
         <footer>
             <p>&copy; <%: DateTime.Now.Year %>- My ASP.NET Application</p>

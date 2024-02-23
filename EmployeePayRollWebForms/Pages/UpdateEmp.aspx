@@ -46,6 +46,7 @@
                                 <td>
                                     <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" Style="font-size: small;" Display="Dynamic" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True" ForeColor="#CC0000">Name is Required</asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="RegularExpressionValidator" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[A-Z][A-Za-z\-'. ]{3,19}$">Name must be caracters and Starts With Uppercase</asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -99,6 +100,7 @@
                                 <td>
                                     <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" Style="font-size: small;" runat="server" ControlToValidate="TextBox3" Display="Dynamic" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True" ForeColor="#CC0000">Salary is Required</asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox3" Display="Dynamic" ErrorMessage="RegularExpressionValidator" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[0-9\. ]{3,10}$">Salary must be numeric characters and along with specify dot if there</asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
